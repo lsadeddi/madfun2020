@@ -112,31 +112,33 @@
     firstName.focus ()
 
     //action functions
-    function checkComplete(evt) {
-      //verify the user filled in the form
+    //action functions
+    function keyDownHandler(evt){
+      //do something when the enter key is pressed
+      //enter key is keycode 13
+      console.log(evt.keyCode);
+      if (evt.keyCode == 13){
+        console.log('enter pressed');
+        checkComplete()
 
-      //enter keycode 13
-
-      if (evt.keycode == 13){
- console.keycode('enterpressed');
- checkComplete ()
-
-      }
-
-
-      if (firstName.value == "") {
-        warning.textContent = "please provide name"
-        warning.className = "displayBlock"
-      } else if (favColor.value == "") {
-        warning.textContent = "please provide your favorite color"
-        warning.className = "displayBlock"
-      } else if (place.value == "") {
-        warning.textContent = "please provide your location"
-        warning.className = "displayBlock"
-      } else {
-        writeStory()
       }
     }
+
+      function checkComplete() {
+        //verify the user filled in the form
+        if (firstName.value == ""){
+          warning.textContent = "Please provide a name."
+          warning.className = "displayBlock"
+        } else if (favColor.value == ""){
+          warning.textContent = "Please tell me your favorite color."
+          warning.className = "displayBlock"
+        } else if (place.value == "") {
+          warning.textContent = "Please provide a location."
+          warning.className = "displayBlock"
+        } else {
+          writeStory()
+        }
+      }
 
     function writeStory() {
       //grab the input values to write the story
