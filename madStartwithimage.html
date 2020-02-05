@@ -109,6 +109,11 @@
     <p>Somewhere to visit:
       <input id="place" type="text" placeholder="place">
     </p>
+    <p>Age:
+      <input id="age" type="text" placeholder="age">
+    </p>Favorite Food:
+    <input id="favoriteFood" type="text" placeholder="favorite food">
+  </p>
     <button id="submit">Submit your answers</button>
     <p id="warning">Please answer all questions.</p>
 
@@ -129,6 +134,8 @@
     var again = document.querySelector('#again')
     var favColor = document.querySelector('#favColor')
     var place = document.querySelector('#place')
+    var age = document.querySelector('#age')
+    var favoriteFood = document.querySelector('#favoriteFood')
     var firstName = document.querySelector('#firstName')
     var warning = document.querySelector('#warning')
     var theStory = document.querySelector('#theStory')
@@ -172,7 +179,13 @@
         } else if (place.value == "") {
           warning.textContent = "Please provide a location."
           warning.className = "displayBlock"
-        } else {
+        } else if (age.value == "") {
+          warning.textContent = "Please provide your age."
+          warning.className = "displayBlock"
+        } else if (favoriteFood.value == "") {
+          warning.textContent = "Please provide your favorite food."
+          warning.className = "displayBlock"
+        }else {
           writeStory()
         }
       }
@@ -196,6 +209,7 @@
       finishedstory1 += "I bet you are a nice person, " + firstName.value + "."
       finishedstory2 += "why do you like the color, " + favColor.value + "?"
       finishedstory3 += "I heard " + place.value + " it is a nice place to visit"
+      finishedstory3 += "nice" + age + "you are young!"
 
       theStory.textContent = finishedstory1
       theStory2.textContent = finishedstory2
@@ -213,6 +227,9 @@
       firstName.value = ""
       favColor.value = ""
       place.value = ""
+      age.value = ""
+      place.value = ""
+      favoriteFood.value = ""
 
 
     }
