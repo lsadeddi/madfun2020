@@ -9,18 +9,20 @@
     }
 
     body {
-      background-color: rgb(121, 111, 108);
+      background-color:rgba(121,111,108,0.3);
+      background-image:url(sunset2.jpg);
+      background-size: cover;
       display: flex;
       align-items: center;
       flex-direction: column;
       justify-content: center;
       color: rgb(33, 50, 111);
-      font-family: sans-serif;
+      font-family: 'Indie Flower', cursive;
     }
 
     div {
       padding: 2em;
-      background-color: rgb(199, 174, 183);
+      background-color: rgba(199, 174, 183, 03);
       width: 60%;
       /* margin-bottom: 1em; */
     }
@@ -28,11 +30,11 @@
     p {
       padding: 1em;
       font-size: 2em;
-      background-color: rgb(247, 209, 186);
+      background-color: rgba(247, 209, 186);
     }
 
     button {
-      background-color: rgb(198, 187, 185);
+      background-color: rgba(255, 0, 0, 0.5)
       color: inherit;
       width: 30%;
       font-size: 1.5em;
@@ -63,38 +65,8 @@
 
 <body>
 
-  <style>
-      /* Image Designing Propoerties */
-      .thumb {
-          height: 75px;
-          border: 1px solid #000;
-          margin: 10px 5px 0 0;
-      }
-  </style>
-
-  <script type="text/javascript">
-      /* The uploader form */
-      $(function () {
-          $(":file").change(function () {
-              if (this.files && this.files[0]) {
-                  var reader = new FileReader();
-
-                  reader.onload = imageIsLoaded;
-                  reader.readAsDataURL(this.files[0]);
-              }
-          });
-      });
-
-      function imageIsLoaded(e) {
-          $('#myImg').attr('src', e.target.result);
-          $('#yourImage').attr('src', e.target.result);
-      };
-
-  </script>
 
 
-  <input type='file' />
-</br><img id="myImg" src="sunset2.jpg" alt="your image" height=720 width=920>
 
 
 
@@ -111,9 +83,25 @@
     </p>
     <p>Age:
       <input id="age" type="text" placeholder="age">
-    </p>Favorite Food:
+    </p>
+    <p>Favorite Food:
     <input id="favoriteFood" type="text" placeholder="favorite food">
-  </p>
+    </p>
+    <p>Favorite Drink:
+    <input id="favoriteDrink" type="text" placeholder="favorite Drink">
+    </p>
+    <p>Favorite board game:
+    <input id="favoriteBoardgame" type="text" placeholder="favorite Board game">
+    </p>
+    <p>Favorite Team:
+      <input id="favoriteTeam" type="text" placeholder="Favorite Team">
+    </p>
+    <p>Favorite Candy Bar:
+    <input id="favoriteCandybar" type="text" placeholder="Favorite Candy Bar">
+    </p>
+    <p>Favorite Sport:
+    <input id="favoriteSport" type="text" placeholder="Favorite Sport">
+    </p>
     <button id="submit">Submit your answers</button>
     <p id="warning">Please answer all questions.</p>
 
@@ -135,7 +123,11 @@
     var favColor = document.querySelector('#favColor')
     var place = document.querySelector('#place')
     var age = document.querySelector('#age')
+    var favoriteBoardgame = document.querySelector('#favoriteBoardgame')
     var favoriteFood = document.querySelector('#favoriteFood')
+    var favoriteDrink = document.querySelector('#favoriteDrink')
+    var favoriteTeam = document.querySelector('#favoriteTeam')
+    var favoriteSport = document.querySelector('#favoriteSport')
     var firstName = document.querySelector('#firstName')
     var warning = document.querySelector('#warning')
     var theStory = document.querySelector('#theStory')
@@ -173,17 +165,45 @@
         if (firstName.value == ""){
           warning.textContent = "Please provide a name."
           warning.className = "displayBlock"
+
         } else if (favColor.value == ""){
           warning.textContent = "Please tell me your favorite color."
           warning.className = "displayBlock"
+
         } else if (place.value == "") {
           warning.textContent = "Please provide a location."
           warning.className = "displayBlock"
+
         } else if (age.value == "") {
           warning.textContent = "Please provide your age."
           warning.className = "displayBlock"
+
         } else if (favoriteFood.value == "") {
           warning.textContent = "Please provide your favorite food."
+          warning.className = "displayBlock"
+
+        } else if (favoriteDrink.value == "") {
+          warning.textContent = "Please provide your favorite Drink."
+          warning.className = "displayBlock"
+
+        } else if (favoriteBoardgame.value == ""){
+          warning.textContent = "Please tell me your favorite board game."
+          warning.className = "displayBlock"
+
+        } else if (favoriteTeam.value == "") {
+          warning.textContent = "Please provide your favorite Team."
+          warning.className = "displayBlock"
+
+        } else if (favoriteCandybar.value == "") {
+          warning.textContent = "Please provide your favorite candy bar."
+          warning.className = "displayBlock"
+
+        } else if (favoriteSport.value == "") {
+          warning.textContent = "Please provide your favorite Sport."
+          warning.className = "displayBlock"
+
+          warning.className = "displayBlock"
+          warning.className = "displayBlock"
           warning.className = "displayBlock"
         }else {
           writeStory()
@@ -206,10 +226,16 @@
       let finishedstory3 = ""
 
       finishedstory1 += "Welcome. " + firstName.value + ". "
-      finishedstory1 += "I bet you are a nice person, " + firstName.value + "."
+      finishedstory1 += " You are a nice person, " + firstName.value + "."
       finishedstory2 += "why do you like the color, " + favColor.value + "?"
-      finishedstory3 += "I heard " + place.value + " it is a nice place to visit"
-      finishedstory3 += "nice" + age + "you are young!"
+      finishedstory3 += "I heard " + place.value + " is a nice place to visit. "
+      finishedstory3 += " Wow!!! " + age.value + ", you are young :)"
+      finishedstory3 += " Yummy " + favoriteDrink.value + ", that's a very delicious drink!"
+      finishedstory3 += " Fun... " + favoriteBoardgame.value + " that's a very fun game!"
+      finishedstory3 += " And your team is " + favoriteTeam.value + " Let's Go " + favoriteTeam.value + "!"
+      finishedstory3 += " Good choice for a candy bar " + favoriteCandybar.value + " is my favorite too"
+      finishedstory3 += ", and you picked " + favoriteSport.value + " is a good sport. Thank you for all your fun answers. Nice to meet you :D"
+
 
       theStory.textContent = finishedstory1
       theStory2.textContent = finishedstory2
